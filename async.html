@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise Example</title>
+</head>
+<body>
+
+    <h1 id="result">Resolve Examples</h1>
+    <h2>Promise Example</h2>
+
+    <p id="output">Waiting...</p>
+
+
+    <button onclick="runPromise()">Run Promise</button>
+      <p id="out2">loading wait...</p>
+      <button onclick="output2()">click here</button>
+
+    <script>
+        let txt = document.getElementById("output");
+        let txt2 = document.getElementById("out2")
+
+        function runPromise() {
+            txt.innerHTML = "Loading...";
+
+            let prom1 = new Promise((res, rej) => {
+                setTimeout(() => {
+                    res("✅ Promise resolved successfully!");
+                }, 2000);
+            });
+
+            prom1
+                .then(data => {
+                    txt.innerHTML = data;
+                })
+
+        }
+
+        function output2(){
+            out2.innerHTML = "lading wait a min...."
+            let prom2 = new Promise((res,rej)=>{
+                setTimeout(() =>{
+                    res("resolvbed man")
+
+                },3000)
+            })
+
+            prom2.then(man=>{
+                out2.innerHTML = man;
+            })
+
+        }
+    </script>
+
+</body>
+</html>
